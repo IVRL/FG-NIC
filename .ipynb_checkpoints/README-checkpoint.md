@@ -15,38 +15,47 @@
 ## Table of Contents  
 - [Degradation model](#degradation-model)
 - [Requirements](#requirements)
+- [Model Training](#model-training)
 - [Results](#results)
 - [Citation](#citation)
 
 ## Degradation model
-To explore the effects of degradation types and levels on classification networks, we also implement five types of degradation model: Additive white Gaussian noise(AWGN), Salt and Pepper Noise, Gaussian Blur, Motion Blur and Rectangle Crop. The instruction of those degradatin models is given in [notebook](synthetic_images.ipynb).  
+To explore the effects of degradation types and levels on classification networks, we also implement five types of degradation model: Additive white Gaussian noise (AWGN), Salt and Pepper Noise, Gaussian Blur, Motion Blur and Rectangle Crop. The instruction of those degradatin models is given in [notebook](synthetic_images.ipynb).  
 
 ## Requirements
-- Python 3.7; PyTorch 2.1.0;
+- Python 3.7, PyTorch 2.1.0;
 - Other common packages listed in [`requirements.txt`](requirements.txt) or [`environment.yml`](environment.yml).
 
 ## Model Training
-### Train Pre-trained models for proposed models
-The implemention of classification networks are based on [torchvision](https://pytorch.org/docs/stable/torchvision/models.html), and restoration networks is based on [DnCNN](https://github.com/cszn/KAIR), [MemNet](https://github.com/IVRL/DEU).
-- To obtain pre-trained classification neworks:  
-`python train.py --task=classification --classifier=resnet50`
+### Train Pre-trained sub-models for proposed models
+The implemention of classification networks are from [torchvision](https://pytorch.org/docs/stable/torchvision/models.html), and restoration networks is based on [DnCNN](https://github.com/cszn/KAIR), [MemNet](https://github.com/IVRL/DEU).
 
-- To obtain pre-trained restoration neworks:
-`python train.py --task=restoration --classifier=resnet50 --degradation=awgn --restoration=dncnn`
+- To obtain pretrained classification networks:  
+`python train.py --task classification --classification resnet50 --dataset caltech256  --num_class 257`  
+    - The `--classification` argument takes value in `'resnet50', 'resnet18', 'alexnet', 'googlenet', 'vgg'`;
+    - The `--dataset` and ` --num_class` takes value in `'caltech256', 257` and `'caltech101', 101` respectively.  
 
-- To obtain pre-trained fidelity map estimator:
-`python train.py --task=fidelity --degradation=awgn --restoration=dncnn fidelity_input=degraded --fidelity_output=l1`
+- To obtain pretrained restoration networks:  
+`python train.py --task=restoration --degradation=awgn --restoration=dncnn --level 0 0.5 --batch_size 256`
+    - The `--restoration` argument takes value in `'dncnn', 'memnet'`.  
+    
+- To obtain retrained classification networks on degraded images:  
+`python train.py  --task classification --classification resnet50 --degradation awgn --level 0 0.1 0.2 0.3 0.4 0.5`  
+    
+- To obtain retrained classification networks on restored images:  
+`python train.py  --task classification --classification resnet50 --degradation awgn --level 0 0.1 0.2 0.3 0.4 0.5 --restoration dncnn`
 
-### Proposed method
-- To train the proposed method:
+- To obtain pre-trained fidelity map estimator:  
+`python train.py  --task fidelity --degradation awgn --restoration dncnn --level 0 0.5 --fidelity_input degraded --fidelity_output l1 --batch_size 256 --num_epochs 60`  
+    - The `--fidelity_input` argument takes value in `'degraded', 'restored'`;
+    - The `--fidelity_output` argument takes value in `'l1', 'l2', 'cos'`.  
 
-`python train.py --task=model --classifier=resnet50 --degradation=awgn --restoration=dncnn --mode=endtoend-pretrain`
+### Proposed model
+- To train the proposed model:
+`python train.py  --task model --mode oracle --classification resnet50 --degradation awgn --restoration dncnn --level 0 0.1 0.2 0.3 0.4 0.5 --fidelity_input degraded --fidelity_output l1 --num_epochs 60  --dataset caltech256 --num_class 257`  
+    - The `--mode` argument takes value in `['endtoend-pretrain', 'pretrain', 'oracle']`
 
-The `mode` option can be `['endtoend-pretrain', 'pretrain', 'oracle']`
 
-- To test the proposed method:
-
-`python train.py --task=model --classifier=resnet50 --degradation=awgn --restoration=dncnn --mode=endtoend-pretrain`
 
 
 ## Citation

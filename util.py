@@ -36,42 +36,41 @@ def prepare_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     
     # classification network
-    parser.add_argument('--classification', default=None, type=str)  # Name of model
-    parser.add_argument('--num_classes', default=256 + 1, type=int)  # Number of classes in the dataset
-    parser.add_argument('--dataset', default='caltech256', type=str)  # Number of classes in the dataset
+    parser.add_argument('--classification', default=None, type=str, help='Name of classification network') 
+    parser.add_argument('--num_classes', default=256 + 1, type=int, help='Number of classes in the dataset')
+    parser.add_argument('--dataset', default='caltech256', type=str, help='Name of dataset')
     
     # training
-    parser.add_argument('--task', default='classification', type=str)  # ['classification']
-    parser.add_argument('--batch_size', default=128, type=int)  # Batch size: 128 for classification, 256 for restoration
-    parser.add_argument('--input_size', default=224, type=int)  # Input patch size 
-    parser.add_argument('--num_epochs', default=120, type=int)  # Number of training epoches: 120 for classification, 60 for restoration
-    parser.add_argument('--lr', default=0.001, type=float)  # Learning rate
-    parser.add_argument('--warmup', default=5, type=int)  # Number of epochs for batch-step warmup
-    parser.add_argument('--smoothing', default=0.1, type=float)  # Epsilon for label smoothing
+    parser.add_argument('--task', default='classification', type=str, help='Name of task') # ['classification']
+    parser.add_argument('--batch_size', default=128, type=int, help='Batch size')  # 128 for classification, 256 for restoration
+    parser.add_argument('--input_size', default=224, type=int, help='Size of input images')
+    parser.add_argument('--num_epochs', default=120, type=int, help='Number of training epoches')  # 120 for classification, 60 for restoration and proposed model
+    parser.add_argument('--lr', default=0.001, type=float, help='Learning rate') 
+    parser.add_argument('--warmup', default=5, type=int, help='Number of epochs for batch-step warmup') 
+    parser.add_argument('--smoothing', default=0.1, type=float, help='Epsilon for label smoothing') 
     
     # testing
-    parser.add_argument('--num_round', default=10, type=int)  # Flag for feature extracting
-    parser.add_argument('--is_ensemble', default=True, type=str2bool)  # Flag for feature extracting 
-    parser.add_argument('--test_fidelity', default=False, type=str2bool)
+    parser.add_argument('--num_round', default=10, type=int, help='Number of round to rerun the experiments')  
+    parser.add_argument('--is_ensemble', default=True, type=str2bool, help='Flag for ensemble or single model')
     
     # degradaion
-    parser.add_argument('--degradation', default='clean', type=str) # Degradation type
-    parser.add_argument('--level', default=0.0, nargs="+")  # Max degradaion level or fixed degradation level
-    parser.add_argument('--level_min', default=None, type=float)  # Min degradation level for spatially_varying
-    parser.add_argument('--vary', default='uniform', type=str) # Degradation type
+    parser.add_argument('--degradation', default='clean', type=str, help='Degradation type')
+    parser.add_argument('--level', default=0.0, nargs="+", help='Max degradaion level or fixed degradation level')
+    parser.add_argument('--level_min', default=None, type=float, help='Min degradation level for spatially_varying')
+    parser.add_argument('--vary', default='uniform', type=str, help='Degradation level change style') 
     
     # restoration
-    parser.add_argument('--restoration', default=None, type=str) # Restoration network milestone
-    parser.add_argument('--patch_size', default=50, type=int)
-    parser.add_argument('--stride', default=25, type=int)
+    parser.add_argument('--restoration', default=None, type=str, help='Name of restoration network')
+    parser.add_argument('--patch_size', default=50, type=int, help='Size of input patch')
+    parser.add_argument('--stride', default=25, type=int, help='Stride to take image patch')
     
     # fidelity map
-    parser.add_argument('--fidelity_input', default=None, type=str) # ['degraded', 'restored']
-    parser.add_argument('--fidelity_output', default='l1', type=str) # ['l1', 'l2']
+    parser.add_argument('--fidelity_input', default=None, type=str, help='Fidelity map input')
+    parser.add_argument('--fidelity_output', default='l1', type=str, help='Fidelity map output')
     
     # our model
-    parser.add_argument('--mode', default=None, type=str) # ['degraded', 'restored']
-    parser.add_argument('--downsample', default='bilinear', type=str) # ['bicubic', 'nearest']
+    parser.add_argument('--mode', default=None, type=str, help='Modes of proposed method')
+    parser.add_argument('--downsample', default='bilinear', type=str, help='Downsample method')
     parser.add_argument('--increase', default=0.5, type=float)
     parser.add_argument('--num_channel', default=16, type=int)
     parser.add_argument('--ablation', default=None, type=str)
