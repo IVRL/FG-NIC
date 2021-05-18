@@ -28,7 +28,7 @@ To explore the effects of degradation types and levels on classification network
 - Other common packages listed in [`requirements.txt`](requirements.txt) or [`environment.yml`](environment.yml).
 
 ## Model Training and Testing
-### Train Pre-trained sub-models for proposed models
+### Train Pretrained sub-models for proposed models
 The implemention of classification networks are from [torchvision](https://pytorch.org/docs/stable/torchvision/models.html), and restoration networks is based on [DnCNN](https://github.com/cszn/KAIR), [MemNet](https://github.com/IVRL/DEU).
 
 - To obtain pretrained classification networks:  
@@ -46,7 +46,7 @@ The implemention of classification networks are from [torchvision](https://pytor
 - To obtain retrained classification networks on restored images:  
 `python train.py  --task classification --classification resnet50 --degradation awgn --level 0 0.1 0.2 0.3 0.4 0.5 --restoration dncnn`
 
-- To obtain pre-trained fidelity map estimator:  
+- To obtain pretrained fidelity map estimator:  
 `python train.py  --task fidelity --degradation awgn --restoration dncnn --level 0 0.5 --fidelity_input degraded --fidelity_output l1 --batch_size 256 --num_epochs 60`  
     - The `--fidelity_input` argument takes value in `'degraded', 'restored'`;
     - The `--fidelity_output` argument takes value in `'l1', 'l2', 'cos'`.  
