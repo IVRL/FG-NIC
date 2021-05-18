@@ -15,7 +15,8 @@
 ## Table of Contents  
 - [Degradation model](#degradation-model)
 - [Requirements](#requirements)
-- [Model Training](#model-training)
+- [Model Training and Testing](#model-training-and-testing)
+- [Baseline Methods and Ablation Study](#baseline-methods-and-ablation-study)
 - [Results](#results)
 - [Citation](#citation)
 
@@ -26,7 +27,7 @@ To explore the effects of degradation types and levels on classification network
 - Python 3.7, PyTorch 2.1.0;
 - Other common packages listed in [`requirements.txt`](requirements.txt) or [`environment.yml`](environment.yml).
 
-## Model Training
+## Model Training and Testing
 ### Train Pre-trained sub-models for proposed models
 The implemention of classification networks are from [torchvision](https://pytorch.org/docs/stable/torchvision/models.html), and restoration networks is based on [DnCNN](https://github.com/cszn/KAIR), [MemNet](https://github.com/IVRL/DEU).
 
@@ -51,13 +52,39 @@ The implemention of classification networks are from [torchvision](https://pytor
     - The `--fidelity_output` argument takes value in `'l1', 'l2', 'cos'`.  
 
 ### Proposed model
-- To train the proposed model:
+- To train the proposed model:  
 `python train.py  --task model --mode oracle --classification resnet50 --degradation awgn --restoration dncnn --level 0 0.1 0.2 0.3 0.4 0.5 --fidelity_input degraded --fidelity_output l1 --num_epochs 60  --dataset caltech256 --num_class 257`  
-    - The `--mode` argument takes value in `['endtoend-pretrain', 'pretrain', 'oracle']`
+    - The `--mode` argument takes value in `'endtoend-pretrain', 'pretrain', 'oracle'`
+    
+- To test the proposed model:  
+`python test.py --task model --mode oracle --classification resnet50 --degradation awgn --level 0.1 --restoration dncnn --fidelity_input degraded --fidelity_output l1 --is_ensemble True`
+    - The `--is_ensemble` argument takes value in `'True', 'False'`
 
+## Baseline Methods and Ablation Study
+- We provide four baseline methods for comprehensive analysis. To train and test baseline methods:
+    - [WaveCNet](https://github.com/LiQiufu/WaveCNet)
+        - train: `python train.py  --task wavecnet --classification resnet50`;
+        - test: `python test.py  --task wavecnet --classification resnet50 --degradation awgn --level 0.1`;
+    - [DeepCorrect](https://github.com/tsborkar/DeepCorrect)
+        - train: `python train.py  --task deepcorrect --classification resnet50 --degradation awgn --level 0 0.1 0.2 0.3 0.4 0.5 --num_epochs 60`;
+        - test: `python test.py  --task deepcorrect --classification resnet50 --degradation awgn --level 0.1`.
 
+- We also provide some in-depth analysis and ablation study models:
+    - To try different fidelty map input and output, you can use the `--fidelity_input` and `--fidelity_output` arguments;
+    - To try different downsampling method, you can use the `--downsample` argument which takes value in `'bicubic', 'bilinear', 'nearest'`;
+    - For ablation study, you can use the `--ablation` argument which takes value in `'spatialmultiplication' 'residualmechanism' 'spatialaddition' 'channelmultiplication' 'channelconcatenation'`;
+    - **Note**: For more details of ablation study models, please refer to our paper.  
+    
+## Results
+Except results in our main paper and supplementary materials, we illustrate the performances of the proposed method on other classification network (e.g. AlexNet in figure below on the left) and restoration network (e.g. MemNet in figure below on the right). The performances of the proposed method on other networks are similar to that on ResNet-50 and DnCNN in our paper, which demonstrates the proposed method is model-agnostic which can be used by other networks.
 
+<p align="center">
+  <img src="materials/alexnet-dncnn.png" width="500px"/>
+  <img src="materials/resnet50-memnet.png" width="500px"/>
+</p>
 
+Above figure on the left: Classification results with the AlexNet classification and DnCNN restoration network, on Caltech-256 dataset, for various setups. The solid lines indicate testing directly on noisy images. The dashed lines indicate testing with the DnCNN restoration preprocessing step. Best viewed on screen.  
+Above figure on the right: Classification results with the ResNet-50 classification and MemNet restoration network, on Caltech-256 dataset, for various setups. The solid lines indicate testing directly on noisy images. The dashed lines indicate testing with the DnCNN rest
 ## Citation
 
 ```bibtex
