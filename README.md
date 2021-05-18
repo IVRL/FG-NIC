@@ -70,8 +70,8 @@ The implemention of classification networks are from [torchvision](https://pytor
         - test: `python test.py  --task deepcorrect --classification resnet50 --degradation awgn --level 0.1`.
 
 - We also provide some in-depth analysis and ablation study models:
-    - To try different fidelty map input and output, you can use the `--fidelity_input` and `--fidelity_output` arguments;
-    - To try different downsampling method, you can use the `--downsample` argument which takes value in `'bicubic', 'bilinear', 'nearest'`;
+    - To try different fidelty map inputs and outputs, you can use the `--fidelity_input` and `--fidelity_output` arguments;
+    - To try different downsampling methods, you can use the `--downsample` argument which takes value in `'bicubic', 'bilinear', 'nearest'`;
     - For ablation study, you can use the `--ablation` argument which takes value in `'spatialmultiplication' 'residualmechanism' 'spatialaddition' 'channelmultiplication' 'channelconcatenation'`;
     - **Note**: For more details of ablation study models, please refer to our paper.  
     
