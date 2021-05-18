@@ -79,8 +79,8 @@ The implemention of classification networks are from [torchvision](https://pytor
 Except results in our main paper and supplementary materials, we illustrate the performances of the proposed method on other classification network (e.g. AlexNet in figure below on the left) and restoration network (e.g. MemNet in figure below on the right). The performances of the proposed method on other networks are similar to that on ResNet-50 and DnCNN in our paper, which demonstrates the proposed method is model-agnostic which can be used by other networks.
 
 <p align="center">
-  <img src="materials/alexnet-dncnn.png" width="300px"/>
-  <img src="materials/resnet50-memnet.png" width="300px"/>
+  <img src="materials/alexnet-dncnn.png" width="350px"/>
+  <img src="materials/resnet50-memnet.png" width="350px"/>
 </p>
 
 Above figure on the left: Classification results with the AlexNet classification and DnCNN restoration network, on Caltech-256 dataset, for various setups. The solid lines indicate testing directly on noisy images. The dashed lines indicate testing with the DnCNN restoration preprocessing step. Best viewed on screen.  
