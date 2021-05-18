@@ -12,11 +12,20 @@
 > **Abstract:** *Deep learning has achieved significant improvements in recent years for many computer vision tasks, including image classification. This was propelled by large datasets and convolutional networks capable of learning rich feature extractors. However, such methods are developed on clean images and are not robust when handling noisy ones, despite a restoration preprocessing step. While novel methods were recently developed for tackling this problem, they rely on modified feature extractors. In other words, the feature extractor of the classifier needs to be retrained, which is computationally expensive. We propose a method that can be applied to a pretrained classifier. Our method exploits a fidelity map estimate that is fused into the internal feature representations. This fidelity map enables us to adjust the attention of the network, directing it towards features that are faithful to the clean image, and away from those affected by noise and restoration. Our noisy-image classification results improve over the baseline network by significantly large margins, especially at high noise levels, and come close to the fully-retrained approaches. Furthermore, using our oracle fidelity map, we show that our method even outperforms the fully-retrained methods, whether trained on noisy or restored images.*
 >
 
+## Table of Contents  
+- [Degradation model](#degradation-model)
+- [Requirements](#requirements)
+- [Results](#results)
+- [Citation](#citation)
+
 ## Degradation model
-To explore the effects of degradation types and levels on classification networks, we also implement five types of degradation model: Additive white Gaussian noise, Salt and Pepper Noise, Gaussian Blur, Motion Blur and Rectangle Crop. The instruction of those degradatin models is given in [notebook](synthetic_images.ipynb). 
+To explore the effects of degradation types and levels on classification networks, we also implement five types of degradation model: Additive white Gaussian noise(AWGN), Salt and Pepper Noise, Gaussian Blur, Motion Blur and Rectangle Crop. The instruction of those degradatin models is given in [notebook](synthetic_images.ipynb).  
 
-## Model Training and Testing
+## Requirements
+- Python 3.7; PyTorch 2.1.0;
+- Other common packages listed in [`requirements.txt`](requirements.txt) or [`environment.yml`](environment.yml).
 
+## Model Training
 ### Train Pre-trained models for proposed models
 The implemention of classification networks are based on [torchvision](https://pytorch.org/docs/stable/torchvision/models.html), and restoration networks is based on [DnCNN](https://github.com/cszn/KAIR), [MemNet](https://github.com/IVRL/DEU).
 - To obtain pre-trained classification neworks:  

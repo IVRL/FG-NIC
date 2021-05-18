@@ -1,4 +1,4 @@
-name: xlin-env
+name: FG-NIC-env
 channels:
   - pytorch
   - conda-forge
@@ -181,5 +181,4 @@ dependencies:
     - thop==0.0.31-2005241907
     - torch-dct==0.1.5
     - tqdm==4.49.0
-prefix: /ivrldata1/students/xlin/.conda/envs/xlin-env
 
