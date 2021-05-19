@@ -28,6 +28,12 @@ To explore the effects of degradation types and levels on classification network
 - Other common packages listed in [`requirements.txt`](requirements.txt) or [`environment.yml`](environment.yml).
 
 ## Model Training and Testing
+
+### Training procedure
+For the DnCNN denoiser, the parameter initialization follows [He et al.](https://ieeexplore.ieee.org/document/7410480). And we change the $\ell_2$ loss function of the original [paper](https://ieeexplore.ieee.org/abstract/document/7839189) to $\ell_1$ as it achieves better convergence performance. To train the classification networks, we fine-tune the pretrained model on the ImageNet dataset. The fully connected layers are modified to fit the number of classes of dataset (i.e. 257 for Caltech-256). We adopt the same initialization as [He et al.](https://openaccess.thecvf.com/content_CVPR_2019/html/He_Bag_of_Tricks_for_Image_Classification_with_Convolutional_Neural_Networks_CVPR_2019_paper.html), i.e. the [Xavier algorithm](http://proceedings.mlr.press/v9/glorot10a.html), and the biases are initialized to 0. We use the NAG descent optimizer with an initial learning rate of 0.001, and 120 training epochs. 
+We also introduce a batch-step linear learning rate [warmup](https://arxiv.org/abs/1706.02677) for the first 5 epochs and a cosine learning rate [decay](https://openaccess.thecvf.com/content_CVPR_2019/html/He_Bag_of_Tricks_for_Image_Classification_with_Convolutional_Neural_Networks_CVPR_2019_paper.html), and apply [label smoothing](https://www.cv-foundation.org/openaccess/content_cvpr_2016/html/Szegedy_Rethinking_the_Inception_CVPR_2016_paper.html) with $\varepsilon=0.1$.
+We select the model with the highest accuracy on the validation set.
+
 ### Train Pretrained sub-models for proposed models
 The implemention of classification networks are from [torchvision](https://pytorch.org/docs/stable/torchvision/models.html), and restoration networks is based on [DnCNN](https://github.com/cszn/KAIR), [MemNet](https://github.com/IVRL/DEU).
 
@@ -52,6 +58,7 @@ The implemention of classification networks are from [torchvision](https://pytor
     - The `--fidelity_output` argument takes value in `'l1', 'l2', 'cos'`.  
 
 ### Proposed model
+
 - To train the proposed model:  
 `python train.py  --task model --mode oracle --classification resnet50 --degradation awgn --restoration dncnn --level 0 0.1 0.2 0.3 0.4 0.5 --fidelity_input degraded --fidelity_output l1 --num_epochs 60  --dataset caltech256 --num_class 257`  
     - The `--mode` argument takes value in `'endtoend-pretrain', 'pretrain', 'oracle'`
