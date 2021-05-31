@@ -6,7 +6,7 @@
 ![CUDA 10.2](https://img.shields.io/badge/cuda-10.2-green.svg)
 
 
-#### [[Paper]](https://github.com/IVRL/FG-NIC) - [[Supplementary]](https://github.com/IVRL/FG-NIC)
+#### [[Paper]](https://github.com/IVRL/FG-NIC) - [[Supplementary]](https://github.com/IVRL/FG-NIC/materials/supp.pdf)
 
 
 > **Abstract:** *Deep learning has achieved significant improve-ments in image classification. This was propelled by large datasets and convolutional networks capable of learning rich feature extractors. However, most classification methods are developed on clean images and are not robust when handling noisy ones, despite a restoration preprocessing step. Novel methods thataddress this problem rely on modified feature extractors. We propose a method that can be applied to apretrained classifier. Our method exploits a fidelity map estimate that is fused into the internal feature representations to adjust the attention of thenetwork and make it more robust. Our noisy-image classification results improve over the baselines by significantly large margins, especially at high noise levels, and come close to the fully-retrained approaches. Furthermore, using our oracle fidelity mapas a proof of concept, we show that we even outperform the fully-retrained methods, whether trained on noisy or restored images.*
