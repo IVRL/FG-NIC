@@ -9,7 +9,10 @@
 #### [[Paper]](https://github.com/IVRL/FG-NIC) - [[Supplementary]](https://github.com/IVRL/FG-NIC/materials/supp.pdf)
 
 
-> **Abstract:** *Deep learning has achieved significant improve-ments in image classification. This was propelled by large datasets and convolutional networks capable of learning rich feature extractors. However, most classification methods are developed on clean images and are not robust when handling noisy ones, despite a restoration preprocessing step. Novel methods thataddress this problem rely on modified feature extractors. We propose a method that can be applied to apretrained classifier. Our method exploits a fidelity map estimate that is fused into the internal feature representations to adjust the attention of thenetwork and make it more robust. Our noisy-image classification results improve over the baselines by significantly large margins, especially at high noise levels, and come close to the fully-retrained approaches. Furthermore, using our oracle fidelity mapas a proof of concept, we show that we even outperform the fully-retrained methods, whether trained on noisy or restored images.*
+> **Abstract:** *Image classification has significantly improved using deep learning. This is mainly due to convolutional neural networks (CNNs) that are capable of learning rich feature extractors from large datasets. However, most deep learning classification methods are trained on clean images and are not robust when handling noisy ones, even if a restoration preprocessing step is applied. 
+While novel methods address this problem, they rely on modified feature extractors and thus necessitate retraining. 
+We instead propose a method that can be applied on a pretrained classifier. Our method exploits a fidelity map estimate that is fused into the internal representations of the feature extractor, thereby guiding the attention of the network and making it more robust to noisy data. 
+We improve the noisy-image classification (NIC) results by significantly large margins, especially at high noise levels, and come close to the fully retrained approaches. Furthermore, as proof of concept, we show that when using our oracle fidelity map we even outperform the fully retrained methods, whether trained on noisy or restored images.*
 >
 
 ## Table of Contents  
