@@ -5,8 +5,9 @@
 ![pytorch 1.6.0](https://img.shields.io/badge/pytorch-1.6.0-orange.svg)
 ![CUDA 10.2](https://img.shields.io/badge/cuda-10.2-green.svg)
 
+*Under submission*
 
-#### [[Paper]](https://github.com/IVRL/FG-NIC) - [[Supplementary]](https://github.com/IVRL/FG-NIC/materials/supp.pdf)
+#### [[Paper]](https://github.com/IVRL/FG-NIC) - [[Supplementary]](https://github.com/IVRL/FG-NIC/blob/main/materials/supp.pdf)
 
 
 > **Abstract:** *Image classification has significantly improved using deep learning. This is mainly due to convolutional neural networks (CNNs) that are capable of learning rich feature extractors from large datasets. However, most deep learning classification methods are trained on clean images and are not robust when handling noisy ones, even if a restoration preprocessing step is applied. 
