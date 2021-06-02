@@ -6,7 +6,7 @@
 ![CUDA 10.2](https://img.shields.io/badge/cuda-10.2-green.svg)
 
 
-#### [[Paper]](https://github.com/IVRL/FG-NIC) - [[Supplementary]](https://github.com/IVRL/FG-NIC/materials/supp.pdf)
+#### [[Paper]](https://arxiv.org/abs/2106.00673) - [[Supplementary]](https://github.com/IVRL/FG-NIC/blob/main/materials/supp.pdf)
 
 
 > **Abstract:** *Image classification has significantly improved using deep learning. This is mainly due to convolutional neural networks (CNNs) that are capable of learning rich feature extractors from large datasets. However, most deep learning classification methods are trained on clean images and are not robust when handling noisy ones, even if a restoration preprocessing step is applied. 
@@ -98,5 +98,12 @@ Above figure on the right: Classification results with the ResNet-50 classificat
 ## Citation
 
 ```bibtex
-
+@misc{lin2021fidelity,
+      title={Fidelity Estimation Improves Noisy-Image Classification with Pretrained Networks}, 
+      author={Xiaoyu Lin and Deblina Bhattacharjee and Majed El Helou and Sabine Süsstrunk},
+      year={2021},
+      eprint={2106.00673},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
