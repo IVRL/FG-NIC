@@ -1,4 +1,4 @@
-# Fidelity Estimation Improves Noisy Image Classification with Pretrained Networks
+# Fidelity Estimation Improves Noisy-Image Classification with Pretrained Networks
 ![Python 3.7.9](https://img.shields.io/badge/python-3.7-blue.svg) 
 ![pytorch 1.6.0](https://img.shields.io/badge/pytorch-1.6.0-orange.svg)
 ![CUDA 10.2](https://img.shields.io/badge/cuda-10.2-green.svg)
