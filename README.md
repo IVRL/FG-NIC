@@ -94,7 +94,114 @@ Except results in our main paper and supplementary materials, we illustrate the 
 </p>
 
 Above figure on the left: Classification results with the AlexNet classification and DnCNN restoration network, on Caltech-256 dataset, for various setups. The solid lines indicate testing directly on noisy images. The dashed lines indicate testing with the DnCNN restoration preprocessing step. Best viewed on screen.  
-Above figure on the right: Classification results with the ResNet-50 classification and MemNet restoration network, on Caltech-256 dataset, for various setups. The solid lines indicate testing directly on noisy images. The dashed lines indicate testing with the DnCNN rest
+Above figure on the right: Classification results with the ResNet-50 classification and MemNet restoration network, on Caltech-256 dataset, for various setups. The solid lines indicate testing directly on noisy images. The dashed lines indicate testing with the DnCNN rest.
+
+### Extended experimental results - CIFAR100
+
+The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. We randomly chose 10000 images from training set for validation.
+The results are consistent and given in the table below.
+
+<table>
+    <tr>
+        <td rowspan="2">Methods</td>
+        <td rowspan="2">Experimental<br>results </td>
+        <td colspan="5">Uniform degradation (sigma)</td>
+    </tr>
+    <tr>
+        <td>0.1</td>
+        <td>0.2</td>
+        <td>0.3</td>
+        <td>0.4</td>
+        <td>0.5</td>
+    </tr>
+    <tr>
+        <td rowspan="2">Pretrained</td>
+        <td>Test on noisy</td>
+        <td>45.03</td>
+        <td>17.47</td>
+        <td>8.85</td>
+        <td>5.05</td>
+        <td>3.37</td>
+    </tr>
+    <tr>
+        <td>Test on restored</td>
+        <td>76.38</td>
+        <td>71.78</td>
+        <td>66.53</td>
+        <td>60.86</td>
+        <td>54.41</td>
+    </tr>
+    <tr>
+        <td rowspan="2">Retrain on<br>noisy</td>
+        <td>Test on noisy</td>
+        <td>74.37</td>
+        <td>72.89</td>
+        <td>71.07</td>
+        <td>69.02</td>
+        <td>66.66</td>
+    </tr>
+    <tr>
+        <td>Test on restored</td>
+        <td>73.97</td>
+        <td>71.69</td>
+        <td>69.01</td>
+        <td>65.87</td>
+        <td>62.53</td>
+    </tr>
+    <tr>
+        <td rowspan="2">Retrain on<br>restored</td>
+        <td>Test on noisy</td>
+        <td>28.75</td>
+        <td>9.55</td>
+        <td>3.14</td>
+        <td>1.84</td>
+        <td>1.40</td>
+    </tr>
+    <tr>
+        <td>Test on restored</td>
+        <td>75.91</td>
+        <td>73.87</td>
+        <td>71.75</td>
+        <td>69.23</td>
+        <td>66.76</td>
+    </tr>
+    <tr>
+        <td rowspan="2">FG-NIC<br>(Pretrained)</td>
+        <td>Single</td>
+        <td>76.21</td>
+        <td>73.04</td>
+        <td>70.24</td>
+        <td>67.17</td>
+        <td>63.76</td>
+    </tr>
+    <tr>
+        <td>Ensemble</td>
+        <td>76.52</td>
+        <td>73.53</td>
+        <td>70.63</td>
+        <td>67.49</td>
+        <td>63.96</td>
+    </tr>
+    <tr>
+        <td rowspan="2">FG-NIC<br>(Oracle)</td>
+        <td>Single</td>
+        <td>75.94</td>
+        <td>72.52</td>
+        <td>68.83</td>
+        <td>64.83</td>
+        <td>60.84</td>
+    </tr>
+    <tr>
+        <td>Ensemble</td>
+        <td>76.21</td>
+        <td>72.76</td>
+        <td>68.92</td>
+        <td>64.68</td>
+        <td>60.46</td>
+    </tr>
+</table>
+
+
 ## Citation
 
 ```bibtex
