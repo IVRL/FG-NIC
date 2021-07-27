@@ -166,7 +166,7 @@ The results are consistent and given in the table below.
         <td>66.76</td>
     </tr>
     <tr>
-        <td rowspan="2">FG-NIC<br>(Pretrained)</td>
+        <td rowspan="2">FG-NIC<br>(Oracle)</td>
         <td>Single</td>
         <td>76.21</td>
         <td>73.04</td>
@@ -183,7 +183,7 @@ The results are consistent and given in the table below.
         <td>63.96</td>
     </tr>
     <tr>
-        <td rowspan="2">FG-NIC<br>(Oracle)</td>
+        <td rowspan="2">FG-NIC<br>(Pretrained)</td>
         <td>Single</td>
         <td>75.94</td>
         <td>72.52</td>
