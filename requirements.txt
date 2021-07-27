@@ -126,7 +126,8 @@ ptflops=0.6.4=pypi_0
 pthread-stubs=0.4=h14c3975_1001
 ptyprocess=0.6.0=py_1001
 pycparser=2.20=pyh9f0ad1d_2
-pygments=2.7.1=py_0
+pygments=2.7.4
+#pygments=2.7.1=py_0
 pyopenssl=19.1.0=py_1
 pyparsing=2.4.7=pyh9f0ad1d_0
 pyqt=5.9.2=py37hcca6a23_4
@@ -166,7 +167,8 @@ tornado=6.0.4=py37h8f50634_1
 tqdm=4.49.0=pypi_0
 traitlets=5.0.4=py_1
 typing_extensions=3.7.4.3=pyha847dfd_0
-urllib3=1.25.10=py_0
+urllib3=1.26.5
+#urllib3=1.25.10=py_0
 wcwidth=0.2.5=pyh9f0ad1d_2
 webencodings=0.5.1=py_1
 wheel=0.35.1=pyh9f0ad1d_0
