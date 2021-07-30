@@ -96,16 +96,16 @@ Except results in our main paper and supplementary materials, we illustrate the 
 Above figure on the left: Classification results with the AlexNet classification and DnCNN restoration network, on Caltech-256 dataset, for various setups. The solid lines indicate testing directly on noisy images. The dashed lines indicate testing with the DnCNN restoration preprocessing step. Best viewed on screen.  
 Above figure on the right: Classification results with the ResNet-50 classification and MemNet restoration network, on Caltech-256 dataset, for various setups. The solid lines indicate testing directly on noisy images. The dashed lines indicate testing with the DnCNN rest.
 
-### Extended experimental results - CIFAR100
+### Extended experimental results (CUB-200-2011)
 
-The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. We randomly chose 10000 images from training set for validation.
-The results are consistent and given in the table below.
+The CUB-200-2011 dataset is an image dataset of 200 bird species. There are 5994 training images and 5794 test images. We randomly chose 20 percent of training set for validation.
+The results is given in the table below.
 
 <table>
     <tr>
         <td rowspan="2">Methods</td>
         <td rowspan="2">Experimental<br>results </td>
-        <td colspan="5">Uniform degradation (sigma)</td>
+        <td colspan="5" align="center">Uniform degradation (sigma)</td>
     </tr>
     <tr>
         <td>0.1</td>
@@ -117,87 +117,87 @@ The results are consistent and given in the table below.
     <tr>
         <td rowspan="2">Pretrained</td>
         <td>Test on noisy</td>
-        <td>45.03</td>
-        <td>17.47</td>
-        <td>8.85</td>
-        <td>5.05</td>
-        <td>3.37</td>
+        <td>34.89</td>
+        <td>08.11</td>
+        <td>02.02</td>
+        <td>00.89</td>
+        <td>00.70</td>
     </tr>
     <tr>
         <td>Test on restored</td>
-        <td>76.38</td>
-        <td>71.78</td>
-        <td>66.53</td>
-        <td>60.86</td>
-        <td>54.41</td>
+        <td>56.77</td>
+        <td>42.37</td>
+        <td>30.97</td>
+        <td>23.15</td>
+        <td>16.91</td>
     </tr>
     <tr>
         <td rowspan="2">Retrain on<br>noisy</td>
         <td>Test on noisy</td>
-        <td>74.37</td>
-        <td>72.89</td>
-        <td>71.07</td>
-        <td>69.02</td>
-        <td>66.66</td>
+        <td>59.91</td>
+        <td>55.86</td>
+        <td>51.41</td>
+        <td>46.94</td>
+        <td>42.09</td>
     </tr>
     <tr>
         <td>Test on restored</td>
-        <td>73.97</td>
-        <td>71.69</td>
-        <td>69.01</td>
-        <td>65.87</td>
-        <td>62.53</td>
+        <td>58.37</td>
+        <td>52.56</td>
+        <td>44.97</td>
+        <td>37.76</td>
+        <td>31.33</td>
     </tr>
     <tr>
         <td rowspan="2">Retrain on<br>restored</td>
         <td>Test on noisy</td>
-        <td>28.75</td>
-        <td>9.55</td>
-        <td>3.14</td>
-        <td>1.84</td>
-        <td>1.40</td>
+        <td>52.53</td>
+        <td>24.46</td>
+        <td>07.18</td>
+        <td>01.86</td>
+        <td>00.85</td>
     </tr>
     <tr>
         <td>Test on restored</td>
-        <td>75.91</td>
-        <td>73.87</td>
-        <td>71.75</td>
-        <td>69.23</td>
-        <td>66.76</td>
-    </tr>
-    <tr>
-        <td rowspan="2">FG-NIC<br>(Oracle)</td>
-        <td>Single</td>
-        <td>76.21</td>
-        <td>73.04</td>
-        <td>70.24</td>
-        <td>67.17</td>
-        <td>63.76</td>
-    </tr>
-    <tr>
-        <td>Ensemble</td>
-        <td>76.52</td>
-        <td>73.53</td>
-        <td>70.63</td>
-        <td>67.49</td>
-        <td>63.96</td>
+        <td>63.34</td>
+        <td>59.51</td>
+        <td>54.76</td>
+        <td>49.83</td>
+        <td>44.63</td>
     </tr>
     <tr>
         <td rowspan="2">FG-NIC<br>(Pretrained)</td>
         <td>Single</td>
-        <td>75.94</td>
-        <td>72.52</td>
-        <td>68.83</td>
-        <td>64.83</td>
-        <td>60.84</td>
+        <td>63.75</td>
+        <td>56.98</td>
+        <td>48.87</td>
+        <td>40.55</td>
+        <td>32.82</td>
     </tr>
     <tr>
         <td>Ensemble</td>
-        <td>76.21</td>
-        <td>72.76</td>
-        <td>68.92</td>
-        <td>64.68</td>
-        <td>60.46</td>
+        <td>64.95</td>
+        <td>57.37</td>
+        <td>48.74</td>
+        <td>40.33</td>
+        <td>32.38</td>
+    </tr>
+    <tr>
+        <td rowspan="2">FG-NIC<br>(Oracle)</td>
+        <td>Single</td>
+        <td>65.10</td>
+        <td>60.21</td>
+        <td>55.26</td>
+        <td>50.77</td>
+        <td>46.10</td>
+    </tr>
+    <tr>
+        <td>Ensemble</td>
+        <td>65.75</td>
+        <td>60.95</td>
+        <td>55.75</td>
+        <td>51.15</td>
+        <td>46.32</td>
     </tr>
 </table>
 
