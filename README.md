@@ -16,7 +16,7 @@ We improve the noisy-image classification (NIC) results by significantly large m
 >
 
 ## Table of Contents  
-- [Degradation model](#degradation-model)
+- [Degradation Model](#degradation-model)
 - [Requirements](#requirements)
 - [Model Training and Testing](#model-training-and-testing)
 - [Baseline Methods and Ablation Study](#baseline-methods-and-ablation-study)
