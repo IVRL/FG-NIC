@@ -94,6 +94,7 @@ Aside from the results in our main paper and supplementary material, we also ill
 </p>
 
 **The above figure on the left:** Classification results with the AlexNet classification network and the DnCNN restoration network, on the Caltech-256 dataset, for various setups. The solid lines indicate testing directly on noisy images. The dashed lines indicate testing with the DnCNN restoration preprocessing step.
+
 **The above figure on the right:** Classification results with the ResNet-50 classification network and the MemNet restoration network, on the Caltech-256 dataset, for various setups. The solid lines indicate testing directly on noisy images. The dashed lines indicate testing with the MemNet restoration preprocessing step.
 
 ### Extended Experimental Results (CUB-200-2011)
