@@ -3,7 +3,7 @@
 ![pytorch 1.6.0](https://img.shields.io/badge/pytorch-1.6.0-orange.svg)
 ![CUDA 10.2](https://img.shields.io/badge/cuda-10.2-green.svg)
 
-*Under submission*
+IEEE Signal Processing Letters, 2021.
 
 #### [[Paper]](https://arxiv.org/abs/2106.00673) - [[Supplementary]](https://github.com/IVRL/FG-NIC/blob/main/materials/supp.pdf)
 
@@ -206,12 +206,11 @@ The results are given in the table below.
 ## Citation
 
 ```bibtex
-@misc{lin2021fidelity,
-      title={Fidelity Estimation Improves Noisy-Image Classification with Pretrained Networks}, 
-      author={Xiaoyu Lin and Deblina Bhattacharjee and Majed El Helou and Sabine Süsstrunk},
-      year={2021},
-      eprint={2106.00673},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{lin2021fidelity,
+    title={Fidelity Estimation Improves Noisy-Image Classification with Pretrained Networks}, 
+    author={Xiaoyu Lin and Deblina Bhattacharjee and Majed El Helou and Sabine Süsstrunk},
+    journal={IEEE Signal Processing Letters},
+    year={2021},
+    publisher={IEEE}
 }
 ```
