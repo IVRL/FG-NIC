@@ -105,8 +105,7 @@ nest-asyncio=1.4.1=py_0
 networkx=2.5=py_0
 ninja=1.10.1=hc9558a2_1
 nodejs=0.1.1=pypi_0
-notebook=6.1.5
-#notebook=6.1.4=py37hc8dfbb8_0
+notebook=6.4.1
 numpy=1.19.1=py37hbc911f0_0
 numpy-base=1.19.1=py37hfa32c7d_0
 olefile=0.46=py_0
