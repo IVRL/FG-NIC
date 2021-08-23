@@ -66,7 +66,7 @@ jupyter_client=6.1.7=py_0
 jupyter_contrib_core=0.3.3=py_2
 jupyter_core=4.6.3=py37hc8dfbb8_1
 jupyter_nbextensions_configurator=0.4.1=py37hc8dfbb8_1
-jupyterlab=2.2.8=py_0
+jupyterlab=2.2.10
 jupyterlab_pygments=0.1.2=pyh9f0ad1d_0
 jupyterlab_server=1.2.0=py_0
 kiwisolver=1.2.0=py37h99015e2_0
