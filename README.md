@@ -3,7 +3,7 @@
 ![pytorch 1.6.0](https://img.shields.io/badge/pytorch-1.6.0-orange.svg)
 ![CUDA 10.2](https://img.shields.io/badge/cuda-10.2-green.svg)
 
-Published in IEEE Signal Processing Letters, 2021.
+Published in IEEE Signal Processing Letters, 2021. [![DOI](https://zenodo.org/badge/340723861.svg)](https://zenodo.org/doi/10.5281/zenodo.11069080)
 
 #### -- Our frequency-domain insights are based on [SFM](https://github.com/majedelhelou/SFM) and the fidelity concept is inspired by [BUIFD](https://github.com/majedelhelou/BUIFD) and [BIGPrior](https://github.com/majedelhelou/BIGPrior) --
 
